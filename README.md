@@ -1,5 +1,14 @@
 > Relative path processing is added based on the gulp-rev-collector-dxb
 
+```
+---example
+
+x.js             ->    x.js?v=b9213618a6
+/xx/x.js         ->    /xx/x.js?v=b9213618a6
+./xx/x.js        ->    ./xx/x.js?v=b9213618a6
+../../xx/x.js    ->    ../../xx/x.js?v=b9213618a6
+```
+
 ## Install
 
 ```sh
@@ -7,8 +16,6 @@ $ npm install --save @liserl/gulp-rev-collector-dxb
 ```
 
 ## Usage
-
-We can use [gulp-rev-dxb](https://www.npmjs.com/package/gulp-rev-dxb) to cache-bust several assets and generate manifest files for them. Then using gulp-rev-collector-dxb we can collect data from several manifest files and replace links to assets in html templates.
 
 ```js
 var gulp = require('gulp');

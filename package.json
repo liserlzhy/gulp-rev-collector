@@ -1,6 +1,6 @@
 {
   "name": "@liserl/gulp-rev-collector-dxb",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Static asset revision data collector from manifests, generated from different streams, and replace their links in html template.I'm just modifying the example demo.css => demo.css?V=5a6b8d.",
   "main": "index.js",
   "scripts": {

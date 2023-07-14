@@ -190,18 +190,11 @@ function revCollector(opts) {
             if (!file.isNull()) {
                 var src = file.contents.toString('utf8');
 
-                var tpath = file.path.toString().replace(/\\/g, '/')
-                var tcwd = file.cwd.toString().replace(/\\/g, '/')
-                var pResult = tpath.match(new RegExp(tcwd + '(.*?)[^/]+\\.html'))
-                var pRoot = pResult ? pResult[1].replace(/^\//, '') : null
-
                 changes.forEach(function (r) {
-                    if (pRoot && r.replacement.indexOf(pRoot) !== -1) {
-                        var cf = r.replacement.match(/([^/\\]+\.(js|css))(\?v=(\d|[a-z]){8,10})/)
-                        var reg = new RegExp('(([\'"(=])\\.\/([^/]+\/)*' + cf[1] + ')(?:\\?v=(\\d|[a-z]){8,10})\?' , 'g')
-                        src = src.replace(reg, '$1' + cf[3])
-                    }
-                    src = src.replace(r.regexp, r.replacement);
+                    var cf = r.replacement.match(/([^/\\]+\.(js|css|html))(\?v=(\d|[a-z]){8,10})/)
+                    var reg = new RegExp('(([\'"(=])(((\\.\/)|((\\.\\.\/)+))([^/]+\/)*)?' + cf[1] + ')(?:\\?v=(\\d|[a-z]){8,10})\?' , 'g')
+
+                    src = src.replace(reg, '$1' + cf[3]).replace(r.regexp, r.replacement);
                 });
                 file.contents = new Buffer(src);
             }
