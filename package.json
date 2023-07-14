@@ -6,6 +6,14 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:liserlzhy/gulp-rev-collector.git"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
   "keywords": [
     "gulp",
     "gulpplugin",
@@ -17,7 +25,7 @@
     "collect"
   ],
   "author": "liserl",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "plugin-error": "^1.0.1",
     "through2": ">=0.5.1",
